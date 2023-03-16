@@ -1,0 +1,79 @@
+/*  variable scope => global (root) / 2. local */
+body {
+  background-color: #0e7490;
+  font-size: 18px;
+  color: white;
+}
+
+#container {
+  margin: 3em;
+  width: 200px;
+}
+
+p {
+  color: black;
+}
+
+span {
+  color: black;
+}
+
+.myClass {
+  display: flex;
+  justify-content: space-between;
+}
+.myClass li {
+  list-style-type: none;
+  background-color: aqua;
+}
+.myClass:hover li {
+  background-color: black;
+}
+
+.nested {
+  background-color: #10b981;
+}
+.nested p {
+  color: white;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+ul > li {
+  list-style: none;
+}
+
+h2 + p {
+  border: 2px solid;
+}
+
+.example-1 {
+  font-size: 1rem;
+  transition-property: font-size;
+  transition-duration: 1s;
+  transition-delay: 2s;
+}
+.example-1:hover {
+  font-size: 2rem;
+}
+
+.example-3 {
+  font-family: Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.lastClass {
+  border-bottom: 10px solid #84cc16;
+}/*# sourceMappingURL=style.css.map */

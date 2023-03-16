@@ -1,0 +1,168 @@
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+/*  variable scope => global (root) / 2. local */
+// :root {
+//   --orange: orange;
+//   --blue: blue;
+// }
+
+// h2 {
+//   border-bottom: 2px solid var(--orange);
+// }
+
+// div {
+//   color: red;
+//   font-size: 12px;
+// }
+
+// .box {
+//   color: var(--blue);
+// }
+
+// button {
+//   // Locale Variable vergeben:
+//   --button-color: #f97316;
+//   background-color: var(--button-color);
+//   border: 1px solid var(--button-color);
+// }
+
+// 2. var(--name: fallback)
+// .box {
+//   background-color: var(--a, #ccc);
+//   padding: 10px;
+//   margin: 10px;
+// }
+
+// .special {
+//   --a: #f90;
+// }
+
+// SASS
+// Zuweisung & abrufen Variablen mit $
+$bg-color: #0e7490;
+$color: white;
+$myFontSize: 18px;
+$myWidth: 400px;
+$size: 1em;
+
+// $colors: (
+//   main: #facc15,
+//   second: #84cc16,
+// );
+
+body {
+  background-color: $bg-color;
+  font-size: $myFontSize;
+  color: $color;
+}
+
+#container {
+  margin: $size * 3;
+  width: $myWidth / 2;
+}
+
+// SASS / SCSS
+// 3. SASS variable scope
+p {
+  $color: black !global;
+  color: $color;
+}
+
+span {
+  color: $color;
+}
+
+// 4. Nested rules
+.myClass {
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    list-style-type: none;
+    background-color: aqua;
+  }
+  &:hover li {
+    background-color: black;
+  }
+}
+
+// 4.1
+.nested {
+  background-color: #10b981;
+  p {
+    color: white;
+  }
+}
+
+// 4.2
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+// 4.3
+// CSS:
+// ul > li {
+//   list-style: none;
+// }
+// h2 + p {
+//   border: 2px solid;
+// }
+
+ul > {
+  li {
+    list-style: none;
+  }
+}
+
+h2 {
+  + p {
+    border: 2px solid;
+  }
+}
+
+// Nested properties
+// CSS:
+
+.example-1 {
+  font-size: 1rem;
+  transition: {
+    property: font-size;
+    duration: 1s;
+    delay: 2s;
+  }
+  &:hover {
+    font-size: 2rem;
+  }
+}
+
+.example-3 {
+  font: {
+    family: Helvetica, sans-serif;
+    size: 19px;
+    weight: bold;
+  }
+}
+
+// .
+
+// @IMPORT AND @EXTEND AND MIXIN AND PARTIAL
+$colors: (
+  main: #facc15,
+  second: #84cc16,
+);
+$border-default: 10px solid map-get($colors, second);
+
+.lastClass {
+  border-bottom: $border-default;
+}
